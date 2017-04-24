@@ -1,23 +1,10 @@
-{ "common": {
-    "collection": [
-      { "$ref": "#/parameters/header" },
-      { "$ref": "#/parameters/limit" },
-      { "$ref": "#/parameters/where" },
-      { "$ref": "#/parameters/stacktrace" },
-      { "$ref": "#/parameters/attributes" },
-      { "$ref": "#/parameters/include" },
-      { "$ref": "#/parameters/offset" }
-    ],
-  "entity": [
-    { "$ref": "#/parameters/header" },
-    { "$ref": "#/parameters/where" },
-    { "$ref": "#/parameters/stacktrace" },
-    { "$ref": "#/parameters/attributes" },
-    { "$ref": "#/parameters/include" },
-    { "$ref": "#/parameters/offset" }
-  ]
-  },
-  "parameters": {
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.1",
+        "title": "Collections of Persons Design Pattern Common Definitions"
+    },
+    "parameters": {
     "apikey": {
       "in": "query",
       "name": "apikey",

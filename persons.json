@@ -24,7 +24,10 @@
                 ],
                 "description": "Return list of persons",
                 "operationId": "getPersons",
-                "parameters": { "$ref": "common.json#/common/collection" },
+                "parameters": [
+					{ "$ref": "#/parameters/header" },
+				    { "$ref": "common.json#/parameters/limit" }
+				],
                 "responses": {
                     "200": {
                         "description": "Success",
