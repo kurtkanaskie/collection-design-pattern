@@ -25,9 +25,9 @@
                 "description": "Return list of persons",
                 "operationId": "getPersons",
                 "parameters": [
-                  { "$ref": "common.json#/parameters/apikey" },
                   { "$ref": "common.json#/parameters/authorization" },
-                  { "$ref": "common.json#/parameters/pageSize" }
+                  { "$ref": "common.json#/parameters/pageSize" },
+                  { "$ref": "common.json#/parameters/pageNumber" }
                 ],
                 "responses": {
                     "200": {
