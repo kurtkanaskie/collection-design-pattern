@@ -26,8 +26,8 @@
                 "operationId": "getPersons",
                 "parameters": [
                   { "$ref": "common.json#/parameters/apikey" },
-                  { "$ref": "#/parameters/authorization" },
-                  { "$ref": "#/parameters/pageSize" }
+                  { "$ref": "common.json#/parameters/authorization" },
+                  { "$ref": "common.json#/parameters/pageSize" }
                 ],
                 "responses": {
                     "200": {
@@ -39,7 +39,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -70,7 +70,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -109,7 +109,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -154,7 +154,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -191,7 +191,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -199,70 +199,6 @@
         }
     },
     "definitions": {
-        "metadata": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "self": {
-                    "type": "string"
-                },
-                "generated": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "lastModified": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "etag": {
-                    "type": "string"
-                }
-            }
-        },
-        "pagination": {
-            "type": "object",
-            "properties": {
-                "pageNumber": {
-                    "description": "Page number",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "totalRecordCount": {
-                    "description": "Total number of records",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "totalPage": {
-                    "description": "Total number of pages",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "currentPageItem": {
-                    "description": "Number of items in this page",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "pageSize": {
-                    "description": "Page size",
-                    "type": "integer",
-                    "format": "int32"
-                },
-                "current": {
-                    "description": "Link to current page",
-                    "type": "string"
-                },
-                "next": {
-                    "description": "Link to next page",
-                    "type": "string"
-                },
-                "previous": {
-                    "description": "Link to previous page",
-                    "type": "string"
-                }
-            }
-        },
         "Person": {
             "required": [
                 "personFullName"
@@ -287,7 +223,7 @@
                 {
                     "properties": {
                         "metadata": {
-                            "$ref": "#/definitions/metadata"
+                            "$ref": "common.json#/definitions/metadata"
                         },
                         "uuid": {
                             "type": "string"
@@ -311,10 +247,10 @@
             ],
             "properties": {
                 "metadata": {
-                    "$ref": "#/definitions/metadata"
+                    "$ref": "common.json#/definitions/metadata"
                 },
                 "pagination": {
-                    "$ref": "#/definitions/pagination"
+                    "$ref": "common.json#/definitions/pagination"
                 },
                 "persons": {
                     "description": "Persons response",
@@ -324,42 +260,6 @@
                     }
                 }
             }
-        },
-        "ErrorResponse": {
-            "required": [
-                "message"
-            ],
-            "properties": {
-                "message": {
-                    "type": "string"
-                }
-            }
         }
-    },
-    "parameters": {
-        "authorization": {
-          "in": "header",
-          "name": "Authorization",
-          "description": "Header Param Description.",
-          "required": true,
-          "type": "string",
-          "default": "Bearer ya29.aALvVMURujKEcsaMJMht7pdUVsJ3CAEh9uzSbyyjI6QncPZUBUbZOSns0wDHIK_HTcTeojc"
-        },
-        "pageSize": {
-          "in": "query",
-          "name": "pageSize",
-          "description": "Number of items to be returned. Default 10 and Max 100.",
-          "required": false,
-          "type": "number",
-          "default": 10
-        },
-        "pageNumber": {
-          "in": "query",
-          "name": "pageNumber",
-          "description": "Used for paginating records of a collection.",
-          "required": false,
-          "type": "integer",
-          "default": 1
-        }
-  }
+    }
 }
