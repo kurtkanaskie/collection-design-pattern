@@ -25,9 +25,9 @@
                 "description": "Return list of persons",
                 "operationId": "getPersons",
                 "parameters": [
-                  { "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/parameters/authorization" },
-                  { "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/parameters/pageSize" },
-                  { "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/parameters/pageNumber" }
+                  { "$ref": "common.json#/parameters/authorization" },
+                  { "$ref": "common.json#/parameters/pageSize" },
+                  { "$ref": "common.json#/parameters/pageNumber" }
                 ],
                 "responses": {
                     "200": {
@@ -39,7 +39,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -70,7 +70,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -109,7 +109,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -154,7 +154,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -191,7 +191,7 @@
                     "default": {
                         "description": "Error",
                         "schema": {
-                            "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/ErrorResponse"
+                            "$ref": "common.json#/definitions/ErrorResponse"
                         }
                     }
                 }
@@ -223,7 +223,7 @@
                 {
                     "properties": {
                         "metadata": {
-                            "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/metadata"
+                            "$ref": "common.json#/definitions/metadata"
                         },
                         "uuid": {
                             "type": "string"
@@ -247,10 +247,10 @@
             ],
             "properties": {
                 "metadata": {
-                    "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/metadata"
+                    "$ref": "common.json#/definitions/metadata"
                 },
                 "pagination": {
-                    "$ref": "https://raw.githubusercontent.com/kurtkanaskie/collection-design-patthern/master/common.json#/definitions/pagination"
+                    "$ref": "common.json#/definitions/pagination"
                 },
                 "persons": {
                     "description": "Persons response",
