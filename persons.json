@@ -1,0 +1,428 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "0.0.1",
+        "title": "Collections of Persons Design Pattern"
+    },
+    "host": "kkanaskietraining-test.apigee.net",
+    "basePath": "/api/v1",
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/persons": {
+            "get": {
+                "tags": [
+                    "Person"
+                ],
+                "description": "Return list of persons",
+                "operationId": "getPersons",
+                "parameters": { "$ref": "./refs/parameters.json#/common/collection" },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/PersonsResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Person"
+                ],
+                "description": "Create persons",
+                "operationId": "createPerson",
+                "parameters": [
+                    {
+                        "name": "profile",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Person"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/PersonResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/persons/{personId}": {
+            "get": {
+                "tags": [
+                    "Person"
+                ],
+                "description": "Return person detail",
+                "operationId": "getPerson",
+                "parameters": [
+                    {
+                        "name": "personId",
+                        "in": "path",
+                        "required": true,
+                        "description": "",
+                        "type": "string"
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/PersonResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Person"
+                ],
+                "description": "Update person detail",
+                "operationId": "updatePerson",
+                "parameters": [
+                    {
+                        "name": "personId",
+                        "in": "path",
+                        "required": true,
+                        "description": "",
+                        "type": "string"
+                    },
+                    {
+                        "name": "profile",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Person"
+                        }
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/PersonResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Person"
+                ],
+                "description": "Return person detail",
+                "operationId": "deletePerson",
+                "parameters": [
+                    {
+                        "name": "personId",
+                        "in": "path",
+                        "required": true,
+                        "description": "",
+                        "type": "string"
+                    },
+                    {
+                        "name": "expand",
+                        "in": "query",
+                        "required": false,
+                        "description": "",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/PersonResponse"
+                        }
+                    },
+                    "default": {
+                        "description": "Error",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }   
+        }
+    },
+    "definitions": {
+        "metadata": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "self": {
+                    "type": "string"
+                },
+                "generated": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "lastModified": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "etag": {
+                    "type": "string"
+                }
+            }
+        },
+        "pagination": {
+            "type": "object",
+            "properties": {
+                "pageNumber": {
+                    "description": "Page number",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "totalRecordCount": {
+                    "description": "Total number of records",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "totalPage": {
+                    "description": "Total number of pages",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "currentPageItem": {
+                    "description": "Number of items in this page",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "pageSize": {
+                    "description": "Page size",
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "current": {
+                    "description": "Link to current page",
+                    "type": "string"
+                },
+                "next": {
+                    "description": "Link to next page",
+                    "type": "string"
+                },
+                "previous": {
+                    "description": "Link to previous page",
+                    "type": "string"
+                }
+            }
+        },
+        "Person": {
+            "required": [
+                "personFullName"
+            ],
+            "properties": {
+                "personFullName": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "number"
+                },
+                "lastName": {
+                    "type": "string"
+                }
+            }
+        },
+        "PersonResponse": {
+            "allOf": [
+                {
+                    "properties": {
+                        "metadata": {
+                            "$ref": "#/definitions/metadata"
+                        },
+                        "uuid": {
+                            "type": "string"
+                        },
+                        "id": {
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "$ref": "#/definitions/Person"
+                }
+            ]
+        },
+        "PersonsResponse": {
+            "type": "object",
+            "required": [
+                "metadata",
+                "pagination",
+                "persons"
+            ],
+            "properties": {
+                "metadata": {
+                    "$ref": "#/definitions/metadata"
+                },
+                "pagination": {
+                    "$ref": "#/definitions/pagination"
+                },
+                "persons": {
+                    "description": "Persons response",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/PersonResponse"
+                    }
+                }
+            }
+        },
+        "ErrorResponse": {
+            "required": [
+                "message"
+            ],
+            "properties": {
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "common": {
+        "collection": [
+          { "$ref": "#/parameters/header" },
+          { "$ref": "#/parameters/limit" },
+          { "$ref": "#/parameters/where" },
+          { "$ref": "#/parameters/stacktrace" },
+          { "$ref": "#/parameters/attributes" },
+          { "$ref": "#/parameters/include" },
+          { "$ref": "#/parameters/offset" }
+        ],
+        "entity": [
+            { "$ref": "#/parameters/header" },
+            { "$ref": "#/parameters/where" },
+            { "$ref": "#/parameters/stacktrace" },
+            { "$ref": "#/parameters/attributes" },
+            { "$ref": "#/parameters/include" },
+            { "$ref": "#/parameters/offset" }
+          ]
+    },
+    "parameters": {
+    "apikey": {
+      "in": "query",
+      "name": "apikey",
+      "description": "Public key to access Nucleus Edge APIs. It is required to count with a valid Google Access token.",
+      "type": "string",
+      "required": true,
+      "default": "2e6EAUHmp7ZomAAn99MuU0Z3Z0I9gT18"
+    },
+    "header": {
+      "in": "header",
+      "name": "Authorization",
+      "description": "Header Param Description. Obtain a valid access token here. https://apigeesc.atlassian.net/wiki/display/NUCLEUS/API+Security",
+      "required": true,
+      "type": "string",
+      "default": "Bearer ya29.aALvVMURujKEcsaMJMht7pdUVsJ3CAEh9uzSbyyjI6QncPZUBUbZOSns0wDHIK_HTcTeojc"
+    },
+    "limit": {
+      "in": "query",
+      "name": "limit",
+      "description": "Number of items to be returned. Default 100 and Max 100.",
+      "required": false,
+      "type": "number",
+      "default": 10
+    },
+    "where": {
+      "in": "query",
+      "name": "where",
+      "description": "Filter items by more specific criteria. Check <a href='http://docs.sequelizejs.com/en/latest/docs/querying/'>Sequelize.js Querying</a> syntax along with describe parameter in Base64 encoding. Return all orgs containing the word 'net' in it would be represented as '{\"org_name\": {\"$like\":\"%net%\"}}' and in base64 as %7B%22org_name%22%3A%20%7B%22%24like%22%3A%22%25net%25%22%7D%7D.",
+      "required": false,
+      "type": "string"
+    },
+    "stacktrace": {
+      "in": "query",
+      "name": "stacktrace",
+      "description": "Useful for development purposes. Returns more information about the error.",
+      "required": false,
+      "type": "boolean",
+      "allowEmptyValue": true
+    },
+    "attributes": {
+      "in": "query",
+      "name": "attributes",
+      "description": "Include only attributes from this list. See describe parameter to retrieve a list of valid attributes. e.g. [\"org_name\",\"account_id\",\"paid\"]",
+      "required": false,
+      "type": "string",
+      "allowEmptyValue": true
+    },
+    "include": {
+      "in": "query",
+      "name": "include",
+      "description": "Include subresources. e.g. [{\"name\": \"APIS\"}]",
+      "required": false,
+      "type": "string",
+      "allowEmptyValue": true
+    },
+    "offset": {
+      "in": "query",
+      "name": "offset",
+      "description": "Used for paginating records of a collection.",
+      "required": false,
+      "type": "integer",
+      "default": 100
+    },
+    "describe": {
+      "in": "query",
+      "name": "describe",
+      "description": "Returns the description of the resource. Columns ATM.",
+      "required": false,
+      "type": "boolean",
+      "allowEmptyValue": true
+    }
+  }
+}
+
