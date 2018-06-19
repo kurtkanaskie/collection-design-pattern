@@ -1,1 +1,1 @@
-# collection-design-patthern
+# collection-design-pattern
